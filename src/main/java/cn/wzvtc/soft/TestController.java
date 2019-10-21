@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController("/" )
 public class TestController {
 
+    
     @RequestMapping(value="/data.json",method={RequestMethod.GET})
     public Map<String,String> bookById(){
         Map<String,String> resultMap=new HashMap<>();
