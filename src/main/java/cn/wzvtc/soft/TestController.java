@@ -1,5 +1,6 @@
 package cn.wzvtc.soft;
 
+import org.omg.CORBA.ORB;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,8 +13,8 @@ import java.util.Map;
 @RestController("/" )
 public class TestController {
 
-    
-    @RequestMapping(value="/data.json",method={RequestMethod.GET})
+
+    @RequestMapping(value="/data.json")
     public Map<String,String> bookById(){
         Map<String,String> resultMap=new HashMap<>();
         resultMap.put("myname","刘笑锋1");
