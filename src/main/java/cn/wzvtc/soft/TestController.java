@@ -20,7 +20,7 @@ public class TestController {
 
         Map<String, String> resultMap = new HashMap<>();
         //判断是否已经登陆,判断SESSION里面是否有我的用户名信息
-        if (httpServletRequest.getSession(true).getAttribute("loginnumber") != null) {
+        if (httpServletRequest.getSession().getAttribute("loginnumber") != null) {
             resultMap.put("myname", (String) httpServletRequest.getSession(true).getAttribute("loginnumber"));
             resultMap.put("mynumber", (String) httpServletRequest.getSession(true).getAttribute("username"));
         }
@@ -34,8 +34,8 @@ public class TestController {
         Map<String, String> resultMap = new HashMap<>();
         if ("2012020045".equals(number) && "2012020045".equals(password)) {
             //将用户名存入到session中
-            httpServletRequest.getSession(true).setAttribute("loginnumber", number);
-            httpServletRequest.getSession(true).setAttribute("username", number);
+            httpServletRequest.getSession().setAttribute("loginnumber", number);
+            httpServletRequest.getSession().setAttribute("username", number);
             resultMap.put("result", "success");
         }
         return resultMap;
