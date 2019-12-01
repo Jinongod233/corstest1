@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin(origins = {"http://127.0.0.1:5500"})
-@RestController()
+@CrossOrigin(origins = {"http://127.0.0.1:5500"},allowCredentials = "true")
+@RestController
 public class TestController {
 
 
@@ -32,7 +32,7 @@ public class TestController {
         String password = map.get("password");
         String number = map.get("number");
         Map<String, String> resultMap = new HashMap<>();
-        if ("2012020045".equals(number) && "2012020045".equals(password)) {
+        if (number!=null && number.equals(password)) {
             //将用户名存入到session中
             httpServletRequest.getSession().setAttribute("loginnumber", number);
             httpServletRequest.getSession().setAttribute("username", number);
