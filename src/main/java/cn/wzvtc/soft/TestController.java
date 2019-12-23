@@ -1,6 +1,7 @@
 package cn.wzvtc.soft;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,16 +17,19 @@ import java.util.Map;
 @RestController
 public class TestController {
 
-    List<String> lvlilist=new ArrayList<>();
+
+    @Autowired
+    LvliRepository lvliRepository;
 
     @RequestMapping(value = "/addlvli")
     public void addlvli(String lvli) {
-        this.lvlilist.add(lvli);
+        Lvli lvli1=new Lvli("1202",lvli);
+        this.lvliRepository.save(lvli1);
     }
 
     @RequestMapping(value = "/lvlilist")
-    public List<String> addlvli() {
-        return this.lvlilist;
+    public List<Lvli> getlvlilist() {
+        return this.lvliRepository.findAll();
     }
 
     @RequestMapping(value = "/userinfo")
