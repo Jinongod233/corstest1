@@ -13,6 +13,18 @@ public class Lvli {
 
     private String number;
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
     private String url;
 
     public Lvli(){
